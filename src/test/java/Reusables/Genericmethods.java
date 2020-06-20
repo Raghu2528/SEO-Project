@@ -48,6 +48,7 @@ public class Genericmethods {
 	public static void enterText(String xpath, String textToEnter) {
 		try {
 			wait = new WebDriverWait(PublicVariables.dr, 50);
+			PublicVariables.dr.findElement(By.xpath(xpath)).clear();
 			PublicVariables.dr.findElement(By.xpath(xpath)).sendKeys(textToEnter);
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -65,4 +66,15 @@ public class Genericmethods {
 				// TODO: handle exception
 			}
 		}
+		
+		// clicking on the webelement
+
+				public static void click(String xpath) {
+					try {
+						wait = new WebDriverWait(PublicVariables.dr, 50);
+						PublicVariables.dr.findElement(By.xpath(xpath)).click();
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+				}
 }

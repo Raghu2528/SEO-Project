@@ -30,8 +30,8 @@ public class ExecutionScript {
 	@Test(dataProvider ="TestIterations")
 	public void Verify_executionTests(int initItraration, int intRow) throws IOException, InterruptedException {
 		Reusablemethods.initiation(intRow);
-		Reusablemethods.gmailAccountCreation();
-		System.out.println(ExcelConnections.getFieldValue("firstName"));
+		Reusablemethods.openGmailUrl("https://accounts.google.com/signup/v2/webcreateaccount?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F%3Fpc%3Dtopnav-about-n-en&flowName=GlifWebSignIn&flowEntry=SignUp");
+		Reusablemethods.gmailAccountCreation(ExcelConnections.getFieldValue("firstname"),ExcelConnections.getFieldValue("lastname"));
 		ExcelConnections.writeToExcel("Status", "Pass");
 	
 	}
