@@ -30,15 +30,19 @@ public class ExecutionScript {
 	@Test(dataProvider ="TestIterations")
 	public void Verify_executionTests(int initItraration, int intRow) throws IOException, InterruptedException {
 		Reusablemethods.initiation(intRow);
-		Reusablemethods.openGmailUrl("https://accounts.google.com/signup/v2/webcreateaccount?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F%3Fpc%3Dtopnav-about-n-en&flowName=GlifWebSignIn&flowEntry=SignUp");
-		Reusablemethods.gmailAccountCreation(ExcelConnections.getFieldValue("firstname"),ExcelConnections.getFieldValue("lastname"));
+		//Reusablemethods.openGmailUrl("https://accounts.google.com/signup/v2/webcreateaccount?service=mail&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F%3Fpc%3Dtopnav-about-n-en&flowName=GlifWebSignIn&flowEntry=SignUp");
+		//Reusablemethods.gmailAccountCreation(ExcelConnections.getFieldValue("firstname"),ExcelConnections.getFieldValue("lastname"));
+		//Reusablemethods.openGmailUrl("https://passport.yandex.com/registration/mail?from=mail&require_hint=1&origin=hostroot_homer_reg_com&retpath=https%3A%2F%2Fmail.yandex.com%2F%3Fnoretpath%3D1&backpath=https%3A%2F%2Fmail.yandex.com%3Fnoretpath%3D1");
+		//Reusablemethods.yandexAccountCreation("laxmi", "m");
+		//Reusablemethods.tumblrAccountCreation("test", "Test");
+		Reusablemethods.verifyYandexAccount(ExcelConnections.getFieldValue("email"),ExcelConnections.getFieldValue("password"));
 		ExcelConnections.writeToExcel("Status", "Pass");
 	
 	}
 	
 	@DataProvider(name ="TestIterations")
 	public Object[][] TestIterations(Method result) throws IOException{
-		
+			
 		PublicVariables.gTestName = result.getName();
 		List<Integer> testData = null;
 		ExcelConnections excel = new ExcelConnections();
