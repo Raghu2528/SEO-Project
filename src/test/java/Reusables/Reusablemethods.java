@@ -17,7 +17,6 @@ public class Reusablemethods {
 		Genericmethods.killExcel();
 		PublicVariables.pRow = intRow;
 		PublicVariables.hmTestData =ExcelConnections.GetTestData(intRow);
-		System.out.println(ExcelConnections.getFieldValue("firstName"));
 	}
 
 	// Open gmail url
@@ -139,6 +138,35 @@ public class Reusablemethods {
 					}
 				}
 				
+				//Creating tumblr account
+				
+				public static void createTumbrlAccount(String email, String pass) {
+					try {
+						System.out.println("Creating Tumblr Account");
+						openGmailUrl("https://www.tumblr.com/");
+						Thread.sleep(5000);
+						Genericmethods.click(ObjectProperties.tGetStartedlink);
+						Thread.sleep(3000);
+						String emaild =email+"@yandex.com";
+						Genericmethods.enterText(ObjectProperties.temail, emaild);
+						Thread.sleep(1000);
+						Genericmethods.enterText(ObjectProperties.tpassword, pass);
+						Thread.sleep(1000);
+						Genericmethods.enterText(ObjectProperties.tusername, email);
+						Thread.sleep(1000);
+						Genericmethods.click(ObjectProperties.tsignup);
+						Thread.sleep(3000);
+						Genericmethods.enterText(ObjectProperties.tage, "29");
+						Thread.sleep(3000);
+						Genericmethods.click((ObjectProperties.tcheckbox));
+						Genericmethods.click(ObjectProperties.tnextbtn);
+						Thread.sleep(10000);
+						Genericmethods.click(ObjectProperties.tcapachecheckbox);
+						Thread.sleep(5000);
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+				}
 				
 		
 }

@@ -38,7 +38,18 @@ public class ObjectProperties {
 	public static String ypopuclose="//span[contains(text(),'Not now')]//parent::span//parent::button";
 	public static String ycomposetext="//span[contains(text(),'Compose')]";
 	
+	//Verifying tumblr account xpaths
 	
+		public static String tGetStartedlink="//span[contains(text(),'Get Started')]";
+		public static String temail="//input[@id='signup_email']";
+		public static String tpassword="//input[@id='signup_password']";
+		public static String tusername="//input[@id='signup_username']";
+		public static String tsignup="//span[contains(text(),'Sign up')]";
+		public static String tage="//input[@id='signup_age']";
+		public static String tcheckbox="//input[@id='signup_tos']";
+		public static String tnextbtn="//span[contains(text(),'Next')][2]";
+		public static String tcapachecheckbox="//span[@id='recaptcha-anchor']";
+		
 	
 	
 }

@@ -34,6 +34,13 @@ public class Genericmethods {
 	public static void browserSetup(String strBrowser) {
 		switch (strBrowser) {
 		case "CHROME":
+			System.setProperty("webdriver.chrome.driver",
+					System.getProperty("user.dir") + "\\Drivers\\chromedriver1.exe");
+
+			PublicVariables.dr = new ChromeDriver();
+			PublicVariables.dr.manage().window().maximize();
+			break;
+		case "CHROME-INCOGINTO":
 			
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--incognito");
@@ -53,8 +60,9 @@ public class Genericmethods {
 	public static void navigateTo(String url) {
 		try {
 			PublicVariables.dr.get(url);
+			System.out.println("Successfully navigated to given url");
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println("Not able to nativat to given url"+e);
 		}
 	}
 
@@ -66,6 +74,7 @@ public class Genericmethods {
 			wait = new WebDriverWait(PublicVariables.dr, 50);
 			PublicVariables.dr.findElement(By.xpath(xpath)).clear();
 			PublicVariables.dr.findElement(By.xpath(xpath)).sendKeys(textToEnter);
+			System.out.println("Sucessfully enterd :::"+textToEnter);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -91,6 +100,7 @@ public class Genericmethods {
 						fluentwait(xpath);
 						wait = new WebDriverWait(PublicVariables.dr, 50);
 						PublicVariables.dr.findElement(By.xpath(xpath)).click();
+						System.out.println("Sucessfully clicked");
 					} catch (Exception e) {
 						// TODO: handle exception
 					}
@@ -143,6 +153,21 @@ public class Genericmethods {
 						Thread.sleep(1000);
 						PublicVariables.dr.switchTo().frame(frameWebelement);
 						PublicVariables.dr.manage().timeouts().pageLoadTimeout(100, TimeUnit.SECONDS);
+						
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+				}
+				
+				//handling popup exists
+				public static void popupExistClick(String xpath) {
+					try {
+						if(PublicVariables.dr.findElements(By.xpath(xpath)).size()==1) {
+							Thread.sleep(500);
+							click(xpath);
+							
+						}
+						
 						
 					} catch (Exception e) {
 						// TODO: handle exception
